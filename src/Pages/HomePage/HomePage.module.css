@@ -1,0 +1,15 @@
+.homePage {
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  padding: 20px;
+}
+
+.homePage::before {
+  content: "";
+}

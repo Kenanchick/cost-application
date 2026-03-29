@@ -1,0 +1,44 @@
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+
+  min-width: 70px;
+  padding: 10px;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #fff;
+}
+
+/* день — главный акцент */
+.date p:nth-child(1) {
+  font-size: 22px;
+  font-weight: 700;
+  color: #7b61ff;
+
+  margin: 0;
+  text-shadow: 0 0 10px rgba(123, 97, 255, 0.6);
+}
+
+/* месяц */
+.date p:nth-child(2) {
+  font-size: 14px;
+  opacity: 0.8;
+
+  margin: 2px 0;
+  text-transform: capitalize;
+  text-shadow: 0 0 10px rgba(123, 97, 255, 0.6);
+}
+
+/* год */
+.date p:nth-child(3) {
+  font-size: 12px;
+  opacity: 0.6;
+
+  margin: 0;
+  text-shadow: 0 0 10px rgba(123, 97, 255, 0.6);
+}

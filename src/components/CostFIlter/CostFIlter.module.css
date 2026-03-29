@@ -1,0 +1,42 @@
+.costFilter {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.costFilterControl {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.costFilterControl label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.costFilterControl select {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #7b61ff, #5a47d6);
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+.costFilterControl select:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(123, 97, 255, 0.4);
+}
+
+.costFilterControl select:focus {
+  box-shadow: 0 0 0 2px rgba(123, 97, 255, 0.5);
+}
+
+.costFilterControl option {
+  color: #000;
+}
