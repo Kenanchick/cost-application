@@ -18,11 +18,11 @@ export const MyCostsAndYearsContext = ({ children }) => {
       date: new Date(2023, 5, 15),
     },
   ]);
-  const [selectYears, setSelectYears] = useState(DEFAULT_YEARS);
+  // const [selectYears, setSelectYears] = useState(DEFAULT_YEARS);
+  const costsDate = costs.map((cost) => cost.date.getFullYear());
+  const selectYears = [...new Set([...DEFAULT_YEARS, ...costsDate])];
   return (
-    <CostsAndYearsContext.Provider
-      value={{ costs, setCosts, selectYears, setSelectYears }}
-    >
+    <CostsAndYearsContext.Provider value={{ costs, setCosts, selectYears }}>
       {children}
     </CostsAndYearsContext.Provider>
   );

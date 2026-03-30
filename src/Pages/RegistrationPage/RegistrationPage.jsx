@@ -1,41 +1,23 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import cls from "./LogInPage.module.css";
+import cls from "./RegistrationPage.module.css";
 import { useState } from "react";
-import { ErrorModal } from "../../components/ErrorModal";
-import { Input } from "../../components/Input/Input";
-import { useAuth } from "../../hoc/AuthProvider";
+import { Input } from "../../components/Input";
 
-export const LogInPage = () => {
-  const [userData, setUserData] = useState({ login: "", password: "" });
+export const RegistrationPage = () => {
+  const [userData, setUserData] = useState({
+    login: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [error, setError] = useState(null);
-  const { signIn } = useAuth();
-
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const fromPage = location.state?.from?.pathname || "/";
 
   const onChangeUserDataHandler = (e) => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
 
-  const validateForm = (e) => {
-    e.preventDefault();
-    if (!userData.login.trim().length || !userData.password.trim().length) {
-      setError("Заполните все поля");
-      return;
-    }
-    const form = e.target;
-    const user = form.login.value;
-    const password = form.password.value;
-    const newUser = {
-      user: user,
-      password: password,
-    };
-    signIn(newUser, () => {
-      navigate(fromPage);
+    setUserData((prev) => {
+      return { ...prev, [name]: value };
     });
+    console.log(name, value);
   };
 
   return (
@@ -55,6 +37,17 @@ export const LogInPage = () => {
           value={userData.login}
           onChange={(e) => onChangeUserDataHandler(e)}
         />
+        <label className={cls.label} htmlFor="login">
+          Введите email
+        </label>
+        <Input
+          className={cls.input}
+          id="email"
+          name="email"
+          type="email"
+          value={userData.email}
+          onChange={(e) => onChangeUserDataHandler(e)}
+        />
         <label className={cls.label} htmlFor="password">
           Введите пароль
         </label>
@@ -66,9 +59,20 @@ export const LogInPage = () => {
           value={userData.password}
           onChange={(e) => onChangeUserDataHandler(e)}
         />
+        <label className={cls.label} htmlFor="login">
+          Подтвердите пароль
+        </label>
+        <Input
+          className={cls.input}
+          id="confirmPassword"
+          name="confirmPassword"
+          type="text"
+          value={userData.confirmPassword}
+          onChange={(e) => onChangeUserDataHandler(e)}
+        />
 
         <button className={cls.button} type="submit">
-          Войти
+          Зарегистрироваться
         </button>
       </form>
     </div>

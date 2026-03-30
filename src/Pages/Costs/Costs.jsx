@@ -3,17 +3,19 @@ import { useState } from "react";
 
 import { CostList } from "./components/CostList";
 import { Form } from "./components/Form";
-import { useCostsAndYears } from "../../context/MyCostsAndYearsContext";
+import { useAuth } from "../../hoc/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export const Costs = () => {
-  const { costs, setCosts } = useCostsAndYears();
-  const create = (cost) => {
-    setCosts([...costs, cost]);
-  };
+  const navigate = useNavigate();
+
+  const { signOut } = useAuth();
+
   return (
     <div className={cls.homePage}>
-      <Form create={create} />
+      <Form />
       <CostList />
+      <button onClick={() => signOut(() => navigate("/"))}>Log Out</button>
     </div>
   );
 };

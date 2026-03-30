@@ -1,5 +1,4 @@
 import cls from "./CostFIlter.module.css";
-import { DEFAULT_YEARS } from "../../../../../../../src/constans/defaultYears";
 import { useCostsAndYears } from "../../../../../../context/MyCostsAndYearsContext";
 
 export const CostFIlter = ({ year, yearChangeHandler }) => {

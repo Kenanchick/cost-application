@@ -7,21 +7,35 @@ import { HomePage } from "./Pages/HomePage";
 import { CostPage } from "./Pages/CostPage/CostPage";
 import { NotFoundPage } from "./Pages/NotFoundPage/NotFoundPage";
 import { LogInPage } from "./Pages/LogInPage";
+
 import { MyCostsAndYearsContext } from "./context/MyCostsAndYearsContext";
+import { RequireAuth } from "./hoc/RequireAuth";
+import { AuthProvider } from "./hoc/AuthProvider";
+import { RegistrationPage } from "./Pages/RegistrationPage";
 
 function App() {
   return (
-    <MyCostsAndYearsContext>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="costs" element={<Costs />} />
-          <Route path="costs/:id" element={<CostPage />} />
+    <AuthProvider>
+      <MyCostsAndYearsContext>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route
+              path="costs"
+              element={
+                <RequireAuth>
+                  <Costs />
+                </RequireAuth>
+              }
+            />
+            <Route path="costs/:id" element={<CostPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
           <Route path="login" element={<LogInPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </MyCostsAndYearsContext>
+          <Route path="reg" element={<RegistrationPage />} />
+        </Routes>
+      </MyCostsAndYearsContext>
+    </AuthProvider>
   );
 }
 

@@ -4,8 +4,8 @@ import { Input } from "../../../../components/Input";
 import { ErrorModal } from "../../../../components/ErrorModal";
 import { useCostsAndYears } from "../../../../context/MyCostsAndYearsContext";
 
-export const Form = ({ create }) => {
-  const { setSelectYears } = useCostsAndYears();
+export const Form = () => {
+  const { selectYears, costs, setCosts } = useCostsAndYears();
 
   const [dataInputs, setDataInputs] = useState({
     title: "",
@@ -20,6 +20,10 @@ export const Form = ({ create }) => {
     setDataInputs((prev) => {
       return { ...prev, [name]: value };
     });
+  };
+
+  const create = (cost) => {
+    setCosts([...costs, cost]);
   };
 
   const addNewCost = (e) => {
@@ -39,16 +43,12 @@ export const Form = ({ create }) => {
       price: dataInputs.price,
       date: new Date(dataInputs.date),
     };
-
-    setSelectYears((prev) => {
-      if (!prev.includes(newCost.date.getFullYear())) {
-        return [...prev, newCost.date.getFullYear()].sort((a, b) => b - a);
-      }
-      return prev;
-    });
-
     create(newCost);
     setDataInputs({ title: "", price: "", date: "" });
+
+    [selectYears].sort((a, b) => b - a);
+
+    return selectYears;
   };
 
   return (
