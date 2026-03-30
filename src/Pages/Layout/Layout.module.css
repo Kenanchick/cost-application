@@ -1,8 +1,8 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -12,6 +12,7 @@
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 1000;
+  height: 20px;
 }
 
 .link {
@@ -44,4 +45,8 @@
 
 .activeLink {
   color: #ffcc70;
+}
+
+.main {
+  margin-top: 80px;
 }

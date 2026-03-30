@@ -1,9 +1,12 @@
 import { useState } from "react";
 import cls from "./Form.module.css";
-import { Input } from "../Input";
-import { ErrorModal } from "../ErrorModal";
+import { Input } from "../../../../components/Input";
+import { ErrorModal } from "../../../../components/ErrorModal";
+import { useCostsAndYears } from "../../../../context/MyCostsAndYearsContext";
 
-export const Form = ({ create, selectYears, setSelectYears }) => {
+export const Form = ({ create }) => {
+  const { setSelectYears } = useCostsAndYears();
+
   const [dataInputs, setDataInputs] = useState({
     title: "",
     price: "",

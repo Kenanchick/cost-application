@@ -7,7 +7,7 @@ const setActive = ({ isActive }) =>
 
 export const Layout = () => {
   return (
-    <>
+    <div>
       <header className={cls.header}>
         <NavLink className={setActive} to="/">
           Home
@@ -19,8 +19,9 @@ export const Layout = () => {
           Costs
         </NavLink>
       </header>
-
-      <Outlet />
-    </>
+      <main className={cls.main}>
+        <Outlet />
+      </main>
+    </div>
   );
 };

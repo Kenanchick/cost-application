@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import cls from "./LogInPage.module.css";
 import { useState } from "react";
 import { ErrorModal } from "../../components/ErrorModal";
+import { Input } from "../../components/Input/Input";
 
 export const LogInPage = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export const LogInPage = () => {
         <label className={cls.label} htmlFor="login">
           Введите логин
         </label>
-        <input
+        <Input
           className={cls.input}
           id="login"
           name="login"
@@ -42,7 +43,7 @@ export const LogInPage = () => {
         <label className={cls.label} htmlFor="password">
           Введите пароль
         </label>
-        <input
+        <Input
           className={cls.input}
           id="password"
           name="password"

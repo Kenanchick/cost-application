@@ -1,4 +1,4 @@
-import { CostDate } from "../CostDate/CostDate";
+import { CostDate } from "./components/CostDate";
 import cls from "./CostItem.module.css";
 
 export const CostItem = ({ cost }) => {

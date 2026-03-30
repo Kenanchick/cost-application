@@ -1,10 +1,13 @@
 import cls from "./CostList.module.css";
-import { CostItem } from "../CostItem";
-import { CostFIlter } from "../CostFIlter";
+import { CostItem } from "./components/CostItem";
+import { CostFIlter } from "./components/CostFIlter";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCostsAndYears } from "../../../../context/MyCostsAndYearsContext";
 
-export const CostList = ({ costs, selectYears, setSelectYears }) => {
+export const CostList = () => {
+  const { costs } = useCostsAndYears();
+
   const [selectedYear, setSelectedYear] = useState("all");
 
   const yearChangeHandler = (year) => {
@@ -20,12 +23,7 @@ export const CostList = ({ costs, selectYears, setSelectYears }) => {
 
   return (
     <div className={cls.costs}>
-      <CostFIlter
-        selectYears={selectYears}
-        setSelectYears={setSelectYears}
-        yearChangeHandler={yearChangeHandler}
-        year={selectedYear}
-      />
+      <CostFIlter yearChangeHandler={yearChangeHandler} year={selectedYear} />
       {filteredCosts.map((cost) => {
         return (
           <Link key={cost.id} to={`/costs/${cost.id}`} className={cls.link}>
