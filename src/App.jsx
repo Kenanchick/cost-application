@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
-import { Costs } from "./Pages/Costs";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Costs } from "./Pages/CostsPage";
 import "./App.css";
-import { Layout } from "./Pages/Layout";
+import { Layout } from "./components/Layout";
 import { HomePage } from "./Pages/HomePage";
 import { CostPage } from "./Pages/CostPage/CostPage";
 import { NotFoundPage } from "./Pages/NotFoundPage/NotFoundPage";
@@ -18,7 +17,10 @@ function App() {
     <AuthProvider>
       <MyCostsAndYearsContext>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Navigate to="/reg" />} />
+          <Route path="/reg" element={<RegistrationPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/app" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route
               path="costs"
@@ -31,8 +33,6 @@ function App() {
             <Route path="costs/:id" element={<CostPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
-          <Route path="login" element={<LogInPage />} />
-          <Route path="reg" element={<RegistrationPage />} />
         </Routes>
       </MyCostsAndYearsContext>
     </AuthProvider>

@@ -46,7 +46,7 @@ export const Form = () => {
     create(newCost);
     setDataInputs({ title: "", price: "", date: "" });
 
-    [selectYears].sort((a, b) => b - a);
+    selectYears.sort((a, b) => b - a);
 
     return selectYears;
   };

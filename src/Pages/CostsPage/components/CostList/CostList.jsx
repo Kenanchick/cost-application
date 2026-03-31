@@ -26,7 +26,7 @@ export const CostList = () => {
       <CostFIlter yearChangeHandler={yearChangeHandler} year={selectedYear} />
       {filteredCosts.map((cost) => {
         return (
-          <Link key={cost.id} to={`/costs/${cost.id}`} className={cls.link}>
+          <Link key={cost.id} to={`/app/costs/${cost.id}`} className={cls.link}>
             <CostItem cost={cost} />
           </Link>
         );

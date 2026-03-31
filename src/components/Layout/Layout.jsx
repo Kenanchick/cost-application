@@ -9,13 +9,10 @@ export const Layout = () => {
   return (
     <div>
       <header className={cls.header}>
-        <NavLink className={setActive} to="/">
+        <NavLink className={setActive} to="/app">
           Home
         </NavLink>
-        <NavLink className={setActive} to="/login">
-          Log In
-        </NavLink>
-        <NavLink className={setActive} to="/costs">
+        <NavLink className={setActive} to="/app/costs">
           Costs
         </NavLink>
       </header>

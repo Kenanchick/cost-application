@@ -15,7 +15,7 @@ export const Costs = () => {
     <div className={cls.homePage}>
       <Form />
       <CostList />
-      <button onClick={() => signOut(() => navigate("/"))}>Log Out</button>
+      <button onClick={() => signOut(() => navigate("/app"))}>Log Out</button>
     </div>
   );
 };
