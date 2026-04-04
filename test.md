@@ -1,1 +1,2 @@
-newtext
+
+greytext, newtext
